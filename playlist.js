@@ -6,12 +6,17 @@ function init() {
 	var button = document.getElementById("addButton");
 	button.onclick = handleButtonClick;
 
+    var ul = document.getElementById("playlist");
+
+
+
 	loadPlaylist();
 }
 
 function handleButtonClick(e) {
 	var textInput = document.getElementById("songTextInput");
 	var songName = textInput.value;
+    var songName = stripHTML(songName);
 
 	if (songName == "") {
 		alert("Please enter a song");
@@ -43,4 +48,10 @@ function removeItem() {
 
     var ul = document.getElementById("playlist");
     ul.removeChild(this.parentNode);
+}
+
+function stripHTML(html) {
+   var tmp = document.createElement("DIV");
+   tmp.innerHTML = html;
+   return tmp.textContent || tmp.innerText || "";
 }
