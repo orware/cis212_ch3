@@ -46,3 +46,14 @@ ul#playlist li:first-child {
 ul#playlist li button.remove-item {
     float: right;
 }
+
+ul#playlist li:hover {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#a90329), to(#8f0222));
+    background-image: -moz-linear-gradient(#a90329, #8f0222);
+    background-image: -ms-linear-gradient(#a90329, #8f0222);
+    background-image: -o-linear-gradient(#a90329, #8f0222);
+    background-image: -webkit-linear-gradient(#a90329, #8f0222);
+    background-image: linear-gradient(#a90329, #8f0222);
+    font-weight: bold;
+    color: white;
+}
