@@ -1,5 +1,5 @@
 /* playlist_store.js
- * 
+ *
  * Ready-bake code to store and retrieve playlist items
  */
 
@@ -14,8 +14,7 @@ function loadPlaylist() {
 	var ul = document.getElementById("playlist");
 	if (playlistArray != null) {
 		for (var i = 0; i < playlistArray.length; i++) {
-			var li = document.createElement("li");
-			li.innerHTML = playlistArray[i];
+            var li = createPlaylistItem(playlistArray[i]);
 			ul.appendChild(li);
 		}
 	}
@@ -36,3 +35,16 @@ function getStoredArray(key) {
 	return playlistArray;
 }
 
+function deleteItem(el) {
+    var playlistArray = getSavedSongs();
+
+    var songName = el.data;
+    var songIndex = playlistArray.indexOf(songName);
+
+    if (songIndex >= 0)
+    {
+        playlistArray.splice(songIndex, 1);
+
+        localStorage.setItem("playlist", JSON.stringify(playlistArray));
+    }
+}

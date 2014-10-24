@@ -43,3 +43,6 @@ ul#playlist li:first-child {
 	border-top-left-radius: 5px;
 }
 
+ul#playlist li button.remove-item {
+    float: right;
+}

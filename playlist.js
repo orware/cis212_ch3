@@ -12,15 +12,12 @@ function init() {
 function handleButtonClick(e) {
 	var textInput = document.getElementById("songTextInput");
 	var songName = textInput.value;
-	//alert("Adding " + songName);
 
 	if (songName == "") {
 		alert("Please enter a song");
 	}
 	else {
-		//alert("Adding " + songName);
-		var li = document.createElement("li");
-		li.innerHTML = songName;
+		var li = createPlaylistItem(songName);
 		var ul = document.getElementById("playlist");
 		ul.appendChild(li);
 
@@ -29,4 +26,21 @@ function handleButtonClick(e) {
 	}
 }
 
+function createPlaylistItem(songName) {
+    var li = document.createElement("li");
+        var button = document.createElement("button");
+        button.setAttribute('class', 'remove-item');
+        button.onclick = removeItem;
+        button.innerHTML = 'Remove';
+        li.innerHTML = songName;
+        li.appendChild(button);
 
+    return li;
+}
+
+function removeItem() {
+    deleteItem(this.previousSibling);
+
+    var ul = document.getElementById("playlist");
+    ul.removeChild(this.parentNode);
+}
